@@ -9,9 +9,62 @@
     <title>Tic-Tac-Toe</title>
 </head>
 <body>
-<main></main>
+<main>
+    <div class="header">
+        <img src="./assets/logo.svg">
+        <div class="turn"><img src="./assets/icon-x-gray.svg">TURN</div>
+        <input class="reset" type="button" value="Reset">
+    </div>
 
-<section class="initializer">
+    <div class="board_container">
+    <div class="board">
+        <div class="board_field">
+            <div class="state"></div>
+        </div>
+        <div class="board_field">
+            <div class="state"></div>
+        </div>
+        <div class="board_field">
+            <div class="state"></div>
+        </div>
+        <div class="board_field">
+            <div class="state"></div>
+        </div>
+        <div class="board_field">
+            <div class="state"></div>
+        </div>
+        <div class="board_field">
+            <div class="state"></div>
+        </div>
+        <div class="board_field">
+            <div class="state"></div>
+        </div>
+        <div class="board_field">
+            <div class="state"></div>
+        </div>
+        <div class="board_field">
+            <div class="state"></div>
+        </div>
+    </div>
+    </div>
+
+    <div class="scoreboard">
+        <div class="playerX score">
+            <div>PLAYER X</div>
+            <div class="x_score bold">0</div>
+        </div>
+        <div class="ties score">
+            <div>TIES</div>
+            <div class="ties_score bold">0</div>
+        </div>
+        <div class="playerO score">
+            <div>PLAYER O</div>
+            <div class="o_score bold">0</div>
+        </div>
+    </div>
+</main>
+
+<section class="initializer disabled">
     <h1> Tic-Tac-Toe </h1>
     <div class="initial">
             <h3> Pick Sign</h3>
@@ -26,7 +79,7 @@
 </section>
 
 
-<section class="result"></section>
+<section class="result disabled"></section>
     
 </body>
 </html>

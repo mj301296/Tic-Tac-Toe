@@ -33,3 +33,9 @@
 
 
 // // labelX.addEventListener('click',changeIcon)
+
+
+const boardField = document.querySelectorAll(`.board_field`);
+
+// boardField.forEach(b=> b.addEventListener('mouseover', ))
+
