@@ -39,6 +39,7 @@ body {
     color: var(--grey);
     font-size: 1rem;
     grid-template-rows: 0.25fr 1fr 0.25fr;
+    gap: 10px;
 }
 
 
@@ -73,15 +74,17 @@ body {
 }
 
 .switch-field label {
-	color: rgba(0, 0, 0, 0.6);
-	font-size: 14px;
-	line-height: 1;
+	color: var(--grey);
+    display: flex;
+    justify-content: center;
+	line-height: 1.5;
 	text-align: center;
 	margin-right: -1px;
 	border: 1px solid rgba(0, 0, 0, 0.2);
 	box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
 	transition: all 0.1s ease-in-out;
     border-radius: 20px;
+    padding: 1%;
 }
 
 .switch-field label:hover {
@@ -91,9 +94,28 @@ body {
 .switch-field input:checked + label {
 	background-color: var(--grey);
 	box-shadow: none;
+    color: var(--primary)
+}
+
+.switch-field .input:checked + label {
+	background-color: var(--grey);
+	box-shadow: none;
+    color: var(--primary)
 }
 
 
-/* label{
-    background: url(./assets/logo.svg);
-} */
+.start_button {
+    height: 50px;
+    padding-bottom: 5px;
+    display: grid;
+    place-items: center;
+    border-radius: 10px;
+    font-weight: 700;
+    border: solid;
+    box-shadow: inset 0 -3px 2px rgba(0, 0, 0, .3);
+}
+.start_button {
+    background: var(--lighten-yellow);
+    width: 80%;
+}
+
