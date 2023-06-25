@@ -34,8 +34,28 @@
 
 // // labelX.addEventListener('click',changeIcon)
 
+const xTurnhover = `url(./assets/icon-x-outline.svg)`;
+const oTurnhover = `url(./assets/icon-o-outline.svg)`;
 
+
+let turn = true;
+const root = document.querySelector(`:root`);
 const boardField = document.querySelectorAll(`.board_field`);
 
-// boardField.forEach(b=> b.addEventListener('mouseover', ))
+
+
+
+
+function hoverImg(){
+        if(turn)
+        root.style.setProperty('--hoverImg', xTurnhover); 
+        else
+        root.style.setProperty('--hoverImg', oTurnhover); 
+        turn = !turn;
+}
+
+boardField.forEach(element => element.addEventListener(`click`, hoverImg));
+
+
+
 

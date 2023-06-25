@@ -4,6 +4,7 @@
     --grey: #A9BEC8;
     --dark-cyan: #34C3BE;
     --lighten-yellow: #F2B138;
+    --hoverImg: url(./assets/icon-x-outline.svg);
 }
 
 body {
@@ -209,6 +210,7 @@ main{
     transform: scale(1.1);
     border-color: #202020;
     box-shadow: 0 0 1rem #202020;
+    background-image: var(--hoverImg)
   }
 
 /* .state{
