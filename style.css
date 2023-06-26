@@ -206,7 +206,28 @@ main{
 
 }
 
-.board_field:hover{
+.solid {
+    color: var(--woody-brown);
+    background: #1E3640;
+    border-radius: 5px;
+    font-weight: 700;
+    place-items: center;
+    font-size: 3.5rem;
+    outline: 2px solid var(--opac-black);
+    outline: 2px solid rgba(255, 255, 255, .2);
+    transition: all .5s ease;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, .5);
+
+    width: 1.6em;
+    height: 1.6em; 
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: all .5s ease;
+
+}
+
+.new:hover{
     transform: scale(1.1);
     border-color: #202020;
     box-shadow: 0 0 1rem #202020;
