@@ -9,7 +9,7 @@
     <title>Tic-Tac-Toe</title>
 </head>
 <body>
-<main>
+<main class="disabled">
     <div class="header">
         <img src="./assets/logo.svg">
         <div class="turn"><img class="img_turn" src="./assets/icon-x-gray.svg">TURN</div>
@@ -18,23 +18,23 @@
 
     <div class="board_container">
     <div class="board">
-        <div class="board_field new" data-id="0">
+        <div class="board_field" data-id="0">
         </div>
-        <div class="board_field new" data-id="1">
+        <div class="board_field" data-id="1">
         </div>
-        <div class="board_field new" data-id="2">
+        <div class="board_field" data-id="2">
         </div>
-        <div class="board_field new" data-id="3">
+        <div class="board_field" data-id="3">
         </div>
-        <div class="board_field new" data-id="4">
+        <div class="board_field" data-id="4">
         </div>
-        <div class="board_field new" data-id="5">
+        <div class="board_field" data-id="5">
         </div>
-        <div class="board_field new" data-id="6">
+        <div class="board_field" data-id="6">
         </div>
-        <div class="board_field new" data-id="7">
+        <div class="board_field" data-id="7">
         </div>
-        <div class="board_field new" data-id="8">
+        <div class="board_field" data-id="8">
         </div>
     </div>
     </div>
@@ -55,22 +55,27 @@
     </div>
 </main>
 
-<section class="initializer disabled">
+<section class="initializer">
     <h1> Tic-Tac-Toe </h1>
     <div class="initial">
             <h3> Pick Sign</h3>
             <div class="switch-field">
                 <input type="radio" name="selct-sign" id="select-x" class="sign-selector">
-                <label for="select-x"><img src="./assets/icon-x-gray.svg"></label>
-                <input type="radio" name="selct-sign" id="select-o" class="sign-selector">
-                <label for="select-o"><img src="./assets/icon-o-gray.svg"></label>
+                <label for="select-x"></label>
+                <input type="radio" name="selct-sign" id="select-o" class="sign-selector" checked>
+                <label for="select-o"></label>
             </div>
             <input class="start_button" type="button" value="Start Game">
     </div>
 </section>
 
 
-<section class="result disabled"></section>
-    
+<section class="result disabled">
+    <h1>Congratulations!</h1>
+    <div class="result_buttons">
+    <input class="quit" type="button" value="QUIT">
+    <input class="next_round" type="button" value="NEXT ROUND">
+    </div>
+</section>
 </body>
 </html>

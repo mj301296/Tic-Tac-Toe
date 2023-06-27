@@ -3,6 +3,12 @@ const root = document.querySelector(`:root`);
 const turnImg = document.querySelector(`.img_turn`);
 const boardField = document.querySelectorAll(`.board_field`);
 const resetButton = document.querySelector(`.reset`);
+const startButton = document.querySelector(`.start_button`);
+const main = document.querySelector(`main`);
+const initializer = document.querySelector(`.initializer`);
+const result = document.querySelector(`.result`);
+const quit = document.querySelector(`.quit`);
+const nextRound = document.querySelector(`.next_round`);
 
 
 const Player =(sign) =>{
@@ -50,8 +56,9 @@ const GameController =(()=>{
 
 
     const setDiv = (e) =>{
+
+        
         GameBoardModule.setField(e.dataset.id, CurrentPlayer.getSign);
-        e.classList.remove(`new`);
         e.classList.add(`solid`);
         e.style.backgroundImage = CurrentPlayer.solidImg;
         checkWinner();
@@ -60,16 +67,16 @@ const GameController =(()=>{
         {
             tie++;
             updateScore();
-            alert(`It's a tie`);
-            resetRound();
+            result.classList.remove(`disabled`);
+            result.childNodes[1].innerHTML =`It's a tie!`;
         }
         if(winner !==`F`)
         {
             if(winner == `x`) Xwin++;
             else Owin++;
             updateScore();
-            alert(winner +`wins`);
-            resetRound();
+            result.classList.remove(`disabled`);
+            result.childNodes[1].innerHTML =`Congratulations!`;
         }
         round++;
     }
@@ -113,37 +120,91 @@ const GameController =(()=>{
         ];
 
         winningCombinations.forEach(element => {
-            if((GameBoardModule.gameBoard[element[0]]===GameBoardModule.gameBoard[element[1]])
-            && (GameBoardModule.gameBoard[element[0]]===GameBoardModule.gameBoard[element[2]])
-            && GameBoardModule.gameBoard[element[0]]!==``)
-                 winner= GameBoardModule.gameBoard[element[0]] ;
+            if((GameBoardModule.getField(element[0])===GameBoardModule.getField(element[1]))
+            && (GameBoardModule.getField(element[0])===GameBoardModule.getField(element[2]))
+            && GameBoardModule.getField(element[0])!==``){
+                 winner= GameBoardModule.getField(element[0]);
+                 highlightWinner(element, winner);
+                
+            }
             }
         )
-    };
+    }; 
+
+    const highlightWinner = (indexes, winner) =>{
+            console.log(indexes)
+            boardField.forEach(b =>{
+                if(indexes.includes(Number(b.dataset.id))){
+                    console.log(b.dataset.id)
+                    if(winner === `x`)
+                    {
+                        b.style.backgroundColor = `#34C3BE`;
+                        b.style.backgroundImage = `url(./assets/icon-x-transparent.svg)`
+                    }
+                    else
+                    {
+                        b.style.backgroundColor = `#F2B138`;
+                        b.style.backgroundImage = `url(./assets/icon-o-transparent.svg)`
+                    }
+                }
+            })
+    }
 
     const resetRound = () =>{
-
         GameBoardModule.reset();
         round =1;
         winner =`F`;
         turn = false;
         CurrentPlayer = PlayerX;
+        turnImg.src = CurrentPlayer.turnImg;
+        root.style.setProperty('--hoverImg', CurrentPlayer.hoverImg);
         boardField.forEach(element=>{
             element.classList.remove(`solid`);
-            element.classList.add(`new`);
             element.style.backgroundImage = ``;
+            element.style.backgroundColor = `#1E3640`;
         })
     };
+    const quit = () =>{
+        resetRound();
+        Xwin =0;
+        Owin =0;
+        tie =0;
+        updateScore();
+    }
     
-    return {round,setDiv,resetRound};
+    return {round,setDiv,resetRound,quit};
 
 })();
 
 boardField.forEach(element => element.addEventListener(`click`, ()=>{
-    GameController.setDiv(element);
+    if(!element.classList.contains(`solid`))
+        GameController.setDiv(element);
 }));
 
+
+startButton.addEventListener(`click`,()=>{
+    console.log(main)
+
+    main.classList.remove(`disabled`);
+    initializer.classList.add(`disabled`);
+
+})
 resetButton.addEventListener(`click`, ()=>{GameController.resetRound()});
+
+
+nextRound.addEventListener(`click`, ()=>{
+    GameController.resetRound();
+    result.classList.add(`disabled`);
+})
+
+
+quit.addEventListener(`click`, ()=>{
+    GameController.quit();
+    result.classList.add(`disabled`);
+    main.classList.add(`disabled`);
+    initializer.classList.remove(`disabled`);
+})
+
 
 
 

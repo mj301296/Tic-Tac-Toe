@@ -18,7 +18,7 @@ body {
     color: var(--grey);
 }
 
-
+/****BEFORE GAME START*****/
 .initializer{
     height: 100vh;
     width: 100vw;
@@ -30,8 +30,8 @@ body {
 
 .initial{
     background: var(--secondary);
-    height: 250px;
-    width: 60%;
+    height: 100%;
+    width: 80%;
     border-radius: 10px;
     box-shadow: 0 10px 10px rgba(0, 0, 0, .5);
     display: grid;
@@ -40,28 +40,18 @@ body {
     color: var(--grey);
     font-size: 1rem;
     grid-template-rows: 0.25fr 1fr 0.25fr;
-    gap: 10px;
+    gap: 30px;
+    padding:1rem;
 }
 
-
-/* .sign-selector {
-    width: 80%;
-    height: 80%;
-    grid-template-columns: 1fr 1fr;
-    border-radius: 18px;
-    overflow: hidden;
-    background: #1A2B33;
-    position: relative;
-    padding: 10px;
-} */
 .switch-field {
     display: grid;
     overflow: hidden;
     padding: 1rem;
     background: var(--primary);
     border-radius: 10px;
-    width: 80%;
-    height: 80%;
+    width: 60%;
+    height: 100%;
     grid-template-columns: 1fr 1fr;
 }
 
@@ -85,20 +75,35 @@ body {
 	box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
 	transition: all 0.1s ease-in-out;
     border-radius: 20px;
+    background-size: 40%;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
-label >img{
-    padding:10%;
+label[for=select-x]{
+    background-image: url(./assets/icon-x-gray.svg)
+}
+
+label[for=select-o]{
+    background-image: url(./assets/icon-o-gray.svg)
 }
 
 .switch-field label:hover {
 	cursor: pointer;
 }
 
-.switch-field input:checked + label {
+.switch-field input:checked + label[for=select-x] {
 	background-color: var(--grey);
 	box-shadow: none;
-    color: var(--primary)
+    color: var(--primary);
+    background-image: url(./assets/icon-x.svg)
+}
+
+.switch-field input:checked + label[for=select-o] {
+	background-color: var(--grey);
+	box-shadow: none;
+    color: var(--primary);
+    background-image: url(./assets/icon-o.svg)
 }
 
 .start_button {
@@ -114,9 +119,14 @@ label >img{
 .start_button {
     background: var(--lighten-yellow);
     width: 80%;
+    color: var(--secondary);
+    font-family: 'Outfit', sans-serif;
+    letter-spacing: .08em;
 }
+/**************************************************************/
 
 
+/***************************GAME CSS*************************/
 .header{
     display:flex;
     gap:0.8rem;
@@ -126,10 +136,6 @@ label >img{
 
 }
 
-/* .header img{
-    width:0px;
-    height:20px;
-} */
 
 .turn{
     display:flex;
@@ -206,44 +212,13 @@ main{
 
 }
 
-.solid {
-    color: var(--woody-brown);
-    background: #1E3640;
-    border-radius: 5px;
-    font-weight: 700;
-    place-items: center;
-    font-size: 3.5rem;
-    outline: 2px solid var(--opac-black);
-    outline: 2px solid rgba(255, 255, 255, .2);
-    transition: all .5s ease;
-    box-shadow: 0 10px 10px rgba(0, 0, 0, .5);
 
-    width: 1.6em;
-    height: 1.6em; 
-    background-size: 60%;
-    background-repeat: no-repeat;
-    background-position: center;
-    transition: all .5s ease;
-
-}
-
-.new:hover{
+.board_field:hover{
     transform: scale(1.1);
     border-color: #202020;
     box-shadow: 0 0 1rem #202020;
     background-image: var(--hoverImg)
   }
-
-/* .state{
-    width: 1.6em;
-    height: 1.6em; 
-    background-size: 60%;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-image: url(./assets/icon-x.svg);
-    transition: all .5s ease;
-}  */
-
 
 .scoreboard{
     display: flex;
@@ -293,3 +268,59 @@ main{
     font-size: 20px;
     font-weight:bold;
  }
+
+/**************************************************************/
+
+/*************************RESULT******************************/
+
+ .result {
+    position: absolute;
+    background: var(--secondary);
+    height: max-content;
+    text-align: center;
+    width: 100%;
+    /* height: 20vh; */
+    top: 30vh;
+    padding: 40px 0;
+    box-shadow: 0 0 0 100vh rgba(0, 0, 0, .3);
+    /* display: grid; */
+    place-items: center;
+    gap: 20px;
+}
+
+.result_buttons{
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+
+
+.result_buttons > input {
+    height: 50px;
+    padding-bottom: 5px;
+    place-items: center;
+    border-radius: 10px;
+    font-weight: 700;
+    box-shadow: inset 0 -3px 2px rgba(0, 0, 0, 0.3);
+    border: hidden;
+    font-family: 'Outfit', sans-serif;
+    text-transform: uppercase;
+    place-items: center;
+    letter-spacing: .08em;
+    color: var(--secondary);
+
+}
+
+
+.quit{
+    width: 25%;
+    background: var(--grey);
+}
+
+.next_round{
+    width:50%;
+    background: var(--lighten-yellow);
+}
+
+/**************************************************************/
